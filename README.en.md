@@ -6,7 +6,7 @@ An open source initiative by **YaskCode Build**: reusable, documented automation
 
 [Español](README.md)
 
-> Design draft — October 16, 2026. The repository is private; public release is pending. The maintainer reports that V4 is working in her environment; its public source and tests are not included in this delivery. This draft is not an installable integration.
+> Experimental private preparation — October 16, 2026. Includes an adapted V4 source with dry-run enabled and offline tests. Independent live API installation remains pending. [Installation in Spanish](docs/installation.md) · [Integration](integrations/beehiiv-hubspot/README.md).
 
 ## Purpose
 
@@ -41,7 +41,7 @@ Secrets stay outside GitHub. Script Properties is not a dedicated secret vault: 
 
 | Automation | Runtime | Public status |
 | --- | --- | --- |
-| beehiiv → HubSpot | Google Apps Script | Two candidates reviewed; production comparison pending |
+| beehiiv → HubSpot | Google Apps Script | Operational source supplied; dry-run adaptation and offline tests |
 | Other integrations | Chosen per use case | Roadmap only |
 
 ## Four approaches compared
@@ -81,7 +81,7 @@ Organize by integration, then runtime, so additional implementations can share f
 | `CONTRIBUTING.md`, `SECURITY.md` | Contribution and private vulnerability reporting |
 | `LICENSE`, `LICENSE-docs`, `ROADMAP.md` | Proposed licensing and milestones |
 
-These paths describe the design. This delivery contains the README drafts and review plan, not a complete executable tree.
+The tree now includes experimental source, a manifest, templates and offline tests; some expansion paths remain proposals.
 
 ## GitHub and Apps Script through clasp
 

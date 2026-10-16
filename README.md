@@ -6,7 +6,7 @@ Una iniciativa open source de **YaskCode Build** para aprender, adaptar y compar
 
 [English](README.en.md)
 
-> Borrador de diseño — 16 de octubre de 2026. Repositorio creado como privado; publicación pendiente. La integración V4 funciona en el entorno de su mantenedora, según validación comunicada por ella; su código público y sus pruebas aún no forman parte de esta entrega. No instalar este borrador como integración ejecutable.
+> Versión experimental en preparación privada — 16 de octubre de 2026. Incluye una copia de V4 con simulación activada y pruebas sin red. Su instalación independiente contra API reales sigue pendiente. [Instalación](docs/installation.md) · [Integración](integrations/beehiiv-hubspot/README.md).
 
 ## Propósito
 
@@ -43,7 +43,7 @@ Los secretos permanecen fuera de GitHub. Script Properties no sustituye una bóv
 
 | Automatización | Ejecutor | Estado público |
 | --- | --- | --- |
-| beehiiv → HubSpot | Google Apps Script | Dos candidatos revisados; cotejo con producción pendiente |
+| beehiiv → HubSpot | Google Apps Script | Copia operativa aportada; adaptación con simulación y pruebas locales |
 | Otras integraciones | Según cada caso | Hoja de ruta; sin código disponible |
 
 ## Cuatro alternativas de automatización
@@ -86,7 +86,7 @@ La organización lógica será por integración y luego por ejecutor. Así, una 
 | `LICENSE`, `LICENSE-docs` | Licencias propuestas, pendientes de adopción |
 | `ROADMAP.md` | Entregas y criterios de aceptación |
 
-Estas rutas son un diseño; esta entrega contiene los README y el plan de revisión, no un árbol ejecutable completo.
+El árbol incorpora código experimental, manifiesto, plantillas y pruebas; algunas rutas de expansión siguen siendo propuestas.
 
 ## GitHub y Apps Script con clasp
 
@@ -123,7 +123,7 @@ Un archivo de código no constituye una instalación completa: cada persona debe
 
 Una suscripción a beehiiv no constituye por sí sola autorización para cualquier comunicación desde HubSpot. El estado de suscripción importado y el consentimiento de marketing de HubSpot deben tratarse como conceptos separados.
 
-La revisión de V4 debe comprobar: normalización de correo, búsqueda antes de crear, tratamiento de duplicados, prohibición de reactivar bajas sin evidencia, estados desconocidos y preservación de otras relaciones del contacto. Una baja de newsletter no debe implicar automáticamente borrar todas sus relaciones CRM.
+La revisión y las pruebas de V4 deben comprobar: normalización de correo, búsqueda antes de crear, tratamiento de duplicados, prohibición de reactivar bajas sin evidencia, estados desconocidos y preservación de otras relaciones del contacto. Una baja de newsletter no debe implicar automáticamente borrar todas sus relaciones CRM.
 
 Definir campos mínimos, finalidad, responsables, plazo de conservación y proceso de atención de solicitudes. No guardar listas de contactos, exportaciones ni cuerpos API en el repositorio, issues, fixtures o logs de CI. Los ejemplos utilizarán dominios reservados como `example.com`.
 
