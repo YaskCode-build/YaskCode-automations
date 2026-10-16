@@ -8,6 +8,13 @@ An open source initiative by **YaskCode Build**: reusable, documented automation
 
 > Experimental private preparation — October 16, 2026. Includes an adapted V4 source with dry-run enabled and offline tests. Independent live API installation remains pending. [Installation in Spanish](docs/installation.md) · [Integration](integrations/beehiiv-hubspot/README.md).
 
+## Learn, apply and collaborate
+
+Each integration will combine **theory, comparison, practice, application and results**, separating HTTP responses, domain states and execution outcomes.
+
+- [Learning model, triggers and response classification](docs/learning-model.en.md)
+- [Technical references, collaboration and visibility](docs/ecosystem.en.md)
+
 ## Purpose
 
 Help educators, communities and developers reduce repetitive work through understandable, adaptable solutions. Every automation must explain its behavior, execution environment, permissions, costs, limits and shutdown procedure. Spanish is the primary documentation language, with English access. Unlimited use and permanent third-party compatibility are not promised.
