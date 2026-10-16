@@ -1,11 +1,17 @@
-# Hoja de ruta
+# Hoja de ruta / Roadmap
 
-1. Base documental: README bilingüe, arquitectura y revisión inicial de V4.
-2. Cotejo: identificar copia final operativa y revisar diferencias con candidatos.
-3. Implementación pública: sanear fuente, documentar contrato API y propiedades, pruebas sin red.
-4. Reproducibilidad: instalación en Apps Script independiente, clasp y solución de problemas.
-5. Validación: workflows con permisos mínimos, escaneo de secretos, pruebas y revisión de documentación.
-6. Publicación: canal privado de seguridad, costos/API verificados, revisión final y confirmación de la mantenedora.
-7. Expansión: formularios de eventos, recordatorios académicos, recursos educativos y reportes comunitarios.
+## Español
 
-Las ideas futuras deben justificar costo y tratamiento de datos; no son integraciones implementadas.
+Completado para la edición experimental: base documental, copia V4 identificada, adaptación con simulación, 14 pruebas, CI, teoría, comparación y guías bilingües.
+
+Próximo: instalar desde cero en desarrollo independiente; verificar planes/cuotas API; medir tiempo y llamadas; añadir presupuesto de ejecución, Retry-After y reconciliación durable. Mantener las traducciones al mismo nivel técnico.
+
+Futuro: registros de eventos con consentimiento, recordatorios académicos, consolidación de recursos y reportes GitHub/comunitarios. Cada propuesta debe justificar costos, permisos, propósito y recuperación. Ninguna idea equivale a una integración implementada.
+
+## English
+
+Completed for the experimental edition: documentation foundation, identified V4 source, dry-run adaptation, 14 tests, CI, theory, comparison and bilingual guides.
+
+Next: independent development installation; verify API plans/quotas; measure runtime and requests; add execution budgeting, Retry-After and durable reconciliation. Keep translations technically aligned.
+
+Future: consent-aware event registration, academic reminders, educational resource aggregation and GitHub/community reporting. Each proposal must justify costs, permissions, purpose and recovery. Roadmap ideas are not implemented integrations.

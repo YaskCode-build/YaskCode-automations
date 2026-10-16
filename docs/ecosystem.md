@@ -26,7 +26,7 @@ HubSpot ofrece aquí una demo con servidor y base de datos: no es una dependenci
 | Star, fork o follow | Facilita guardar, reutilizar o seguir; no garantiza difusión, colaboración ni respuesta |
 | PR externo | Propone un cambio real y revisable al proyecto, sujeto a sus reglas |
 
-El repositorio actual es privado. Una persona externa no podrá leerlo solo porque aparezca mencionada. No usar menciones en un PR privado como mecanismo de presentación.
+Si un repositorio es privado, una persona externa no podrá leerlo solo porque aparezca mencionada. No usar menciones en un PR privado como mecanismo de presentación.
 
 ## Ruta de networking propuesta
 

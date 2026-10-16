@@ -1,7 +1,7 @@
 name: Validate
 on:
   push:
-    branches: [main, feat/beehiiv-hubspot-v4]
+    branches: [main]
   pull_request:
   workflow_dispatch:
 permissions:

@@ -1,5 +1,7 @@
 # Flujo previsto con clasp
 
+[English](clasp.en.md)
+
 Referencia oficial: https://developers.google.com/apps-script/guides/clasp (consultada el 16 de octubre de 2026).
 
 1. Preparar Node.js y una versión compatible de `@google/clasp`.

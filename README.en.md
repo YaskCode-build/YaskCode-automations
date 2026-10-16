@@ -6,7 +6,7 @@ An open source initiative by **YaskCode Build**: reusable, documented automation
 
 [Español](README.md)
 
-> Experimental private preparation — October 16, 2026. Includes an adapted V4 source with dry-run enabled and offline tests. Independent live API installation remains pending. [Installation in Spanish](docs/installation.md) · [Integration](integrations/beehiiv-hubspot/README.md).
+> Experimental edition 0.1.0 — October 16, 2026. Includes an adapted V4 source with dry-run enabled and offline tests. Independent live API installation remains pending. [Installation](docs/installation.en.md) · [Integration](integrations/beehiiv-hubspot/README.en.md).
 
 ## Learn, apply and collaborate
 
@@ -21,9 +21,9 @@ Help educators, communities and developers reduce repetitive work through unders
 
 ## First real integration: beehiiv → HubSpot
 
-Google Apps Script periodically reads beehiiv and synchronizes subscriber additions and subscription removals to HubSpot. The existing trigger is configured for every 15 minutes. GitHub will hold the reviewed public source; Apps Script remains the primary runtime.
+Google Apps Script periodically reads beehiiv and synchronizes subscriber additions and subscription removals to HubSpot. The existing trigger is configured for every 15 minutes. GitHub holds the distribution source; Apps Script is the primary runtime. The maintainer’s operational installation is managed separately.
 
-Trigger frequency does not guarantee exact timing or continuous availability. Exact removal behavior, CRM properties, pagination and retries must be established by reviewing the working V4. Bidirectional synchronization is not assumed.
+Trigger frequency does not guarantee exact timing or continuous availability. Removals update integration-owned CRM properties; they neither delete contacts nor change native marketing consent. Fields, pagination and retries are described in the integration guide. Bidirectional synchronization is not assumed.
 
 | Component | Responsibility |
 | --- | --- |
@@ -62,7 +62,7 @@ USD reference costs checked October 16, 2026. Confirm current plan, region, taxe
 | n8n Community | No license fee for uses allowed by its Sustainable Use License. Hosting, operations, backups and availability have their own costs. | Visual workflows and complex orchestration. | Requires a running environment. Its license restricts use and is not OSI open source. Suitable when infrastructure can be operated. |
 | Zapier | Free: 100 tasks/month, one trigger plus one action, 15-minute polling. Professional advertised from USD 19.99/month billed annually. | Quick setup and managed connectors. | Premium apps, extra steps and higher volumes may require payment. Check the actual connector. Small, simple workflows. |
 
-The current integration uses Apps Script for execution and GitHub for source. Actions will validate changes rather than replace the production trigger.
+The current integration uses Apps Script for execution and GitHub for source. Actions validates changes rather than replace the production trigger.
 
 ### Execution budget
 
@@ -70,23 +70,22 @@ A 15-minute interval means approximately 96 runs daily. A consumer account's 90-
 
 Estimate daily requests as `96 × requests per synchronization`, including pages, searches, writes and retries. beehiiv or HubSpot limits may bind first. API access by service plan must be verified before installation; this project does not claim every free account has sufficient API access.
 
-## Proposed structure
+## Project structure
 
 Organize by integration, then runtime, so additional implementations can share functional documentation.
 
-| Planned path | Purpose |
+| Path | Purpose |
 | --- | --- |
 | `README.md`, `README.en.md` | Spanish and English entry points |
 | `integrations/beehiiv-hubspot/README.md` | Scope, prerequisites, data and operations |
 | `integrations/beehiiv-hubspot/apps-script/src/` | Reviewed source and Apps Script manifest |
 | `integrations/beehiiv-hubspot/apps-script/config/` | Configuration templates without private values |
 | `integrations/beehiiv-hubspot/tests/` | Logic tests and mocked adapters |
-| `integrations/beehiiv-hubspot/fixtures/` | Synthetic API responses only |
 | `docs/` | Architecture, installation, clasp, privacy, costs and troubleshooting |
 | `templates/`, `scripts/` | Integration template and shared validation |
 | `.github/workflows/`, `.github/ISSUE_TEMPLATE/` | Validation and safe contribution forms |
 | `CONTRIBUTING.md`, `SECURITY.md` | Contribution and private vulnerability reporting |
-| `LICENSE`, `LICENSE-docs`, `ROADMAP.md` | Proposed licensing and milestones |
+| `LICENSE`, `ROADMAP.md` | MIT licensing and milestones |
 
 The tree now includes experimental source, a manifest, templates and offline tests; some expansion paths remain proposals.
 
@@ -111,11 +110,20 @@ flowchart TD
 6. Configure test credentials through Script Properties and authorize minimum permissions.
 7. Validate with synthetic data and a no-write mode before installing a development trigger.
 
-No automatic production deployment or clasp OAuth credentials in Actions are planned. Exact instructions will follow the recovered code.
+No automatic production deployment or clasp OAuth credentials in Actions are planned. Edition-specific paths are documented in the [clasp guide](docs/clasp.en.md).
 
-## Installation and operation requirements
+## Installation and validation
 
-The installation guide must cover API plan eligibility, scopes, CRM properties, private configuration, manual tests, a single trigger, monitoring, shutdown and recovery. Document configuration names, purpose and required status without real values. Each user creates and authorizes their own project and credentials.
+The [installation guide](docs/installation.en.md) covers CRM properties, private configuration, manual execution, a development trigger, shutdown and recovery. Local validation requires Node.js 22 or later:
+
+```sh
+git clone https://github.com/YaskCode-build/YaskCode-automations.git
+cd YaskCode-automations
+npm run validate
+npm test
+```
+
+No npm dependencies are required for these checks. Tests mock external services and do not call beehiiv or HubSpot. Live installation requires your own credentials and authorization; these are unnecessary for studying the project or running tests.
 
 ## Consent and privacy
 
@@ -127,7 +135,7 @@ Define minimum fields, purpose, responsible parties, retention and data-request 
 
 ## Publication acceptance criteria
 
-- Retrieve the exact V4 and compare it with the validated copy. Candidate files alone do not establish production equivalence.
+- Operational source supplied by the maintainer; distribution changes documented in the [V4 review](docs/v4-review.en.md).
 - Inspect all proposed files and Git history for tokens, keys, private IDs, emails, headers and logs.
 - Exclude `.clasp.json`, `.clasprc.json`, `.env` files, exports and credentials. Gitignore cannot remove secrets already committed.
 - Review complete pagination, execution budgets, concurrency, idempotency, partial writes and HTTP 401/403/429/5xx handling.
@@ -135,28 +143,28 @@ Define minimum fields, purpose, responsible parties, retention and data-request 
 - Test additions, removals, duplicates, reactivation, unknown states, incomplete pagination and recovery with synthetic responses.
 - Use read-only CI permissions and no production credentials. Do not execute contributed code through `pull_request_target`.
 
-These are review criteria, not verified V4 features. Automated scanning complements human inspection and cannot prove that every secret is absent.
+The [validation status](docs/release-readiness.en.md) separates completed checks from pending work. Automated scanning complements human inspection and cannot prove that every secret is absent.
 
 ## Contributing and security
 
 Documentation, translation, accessibility, tests and integration proposals are welcome. Explain source and destination, runtime, cost, quotas, permissions, consent and recovery. Reproduce problems using synthetic data.
 
-A private security reporting channel must be enabled before launch. Do not publish private data in issues. No unconfigured reporting channel is advertised here.
+For potential vulnerabilities follow [SECURITY.md](SECURITY.md); never publish sensitive details in issues.
 
-## Proposed licenses
+## License
 
 The existing MIT license is retained and also covers documentation in this delivery. CC BY 4.0 for educational material remains a proposal for a later explicit licensing decision, including full notices before adoption. Dependencies and services retain their own terms; project licensing does not change n8n licensing or API terms.
 
 ## Roadmap
 
-| Stage | Deliverable | Exit criterion |
-| --- | --- | --- |
-| 1. Design | Access review, structure and bilingual README | Scope review |
-| 2. Recovery | Identified V4 and sanitized public copy | Functional comparison and security review |
-| 3. Reproducibility | Guides and mocked tests | Independent development installation |
-| 4. Public preparation | Licenses, contribution, security and workflows | Validation and final content review |
-| 5. Publication | Public repository and first release | Maintainer's explicit confirmation of reviewed content |
-| 6. Expansion | Additional automations | Same quality criteria |
+| Area | Status |
+| --- | --- |
+| Structure, documentation and learning model | Included in Spanish and English |
+| Distributed V4 engine | Experimental; dry-run enabled |
+| Local tests and CI | 14 mocked-service tests |
+| Independent live API installation | Pending |
+| Runtime budget, Retry-After and durable queue | Future improvements |
+| Additional integrations | Proposals in ROADMAP.md |
 
 Future ideas include consent-aware activity registration, academic reminders, educational resource collection, GitHub project reports, community metrics and assisted duplicate review. These are proposals rather than implemented integrations or compatibility commitments.
 

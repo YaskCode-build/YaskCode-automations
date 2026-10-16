@@ -1,5 +1,7 @@
 # Revisión inicial de los candidatos V4
 
+[English](v4-review.en.md)
+
 Inspección estática: 16 de octubre de 2026. No se ejecutó ninguno de estos archivos ni se accedió a producción.
 
 ## Material recuperado
