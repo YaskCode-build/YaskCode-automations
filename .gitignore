@@ -1,0 +1,18 @@
+# Dependencias y resultados locales
+node_modules/
+coverage/
+.DS_Store
+*.log
+# Configuración privada y OAuth
+.env
+.env.*
+!.env.example
+.clasp.json
+.clasprc.json
+**/.clasp.json
+**/.clasprc.json
+credentials*.json
+secrets*.json
+# Datos reales fuera del repositorio
+private/
+exports/
