@@ -11,3 +11,8 @@ Referencia oficial: https://developers.google.com/apps-script/guides/clasp (cons
 7. Probar sin escrituras antes de cualquier activador de desarrollo.
 
 El manifiesto, rutas y comandos de instalación completos se fijarán al incorporar el motor revisado. No se configura despliegue automático ni credenciales clasp en Actions.
+
+
+## Rutas para esta copia
+
+Desde `integrations/beehiiv-hubspot/apps-script/`, crear localmente `.clasp.json` siguiendo `config/clasp.example.json`, con el ID del proyecto independiente y `rootDir` igual a `src`. `clasp status` debe mostrar únicamente el motor y el manifiesto. Revisar el destino antes de `clasp push`. La plantilla de Script Properties no se sube ni aplica automáticamente con clasp.

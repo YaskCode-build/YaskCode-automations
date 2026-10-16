@@ -35,4 +35,13 @@ La copia temprana bloquea todo el plan si supera cinco escrituras. Etapa6 priori
 
 ## Siguiente entrada necesaria
 
-Exportación del código final operativo o confirmación de qué archivo corresponde exactamente a él, incluidos cambios posteriores. No solicitar ni copiar Script Properties, tokens, listas de suscriptores ni registros con datos personales. Hasta entonces no se incorpora un motor ejecutable al repositorio.
+Exportación del código final operativo o confirmación de qué archivo corresponde exactamente a él, incluidos cambios posteriores. No solicitar ni copiar Script Properties, tokens, listas de suscriptores ni registros con datos personales. Este era el pendiente inicial; la sección siguiente registra su resolución y los límites restantes.
+
+
+## Copia operativa aportada y adaptación para distribución
+
+La mantenedora aportó el código final `YaskCode_V4.gs` el 16 de octubre de 2026, acompañado de captura del editor. A diferencia de los candidatos, declara `DRY_RUN=false` y `MAX_ESCRITURAS=1`. Su motor corresponde al flujo por lotes de Etapa6. La periodicidad de 15 minutos es información de la instalación comunicada por la mantenedora; el archivo no contiene la creación del activador.
+
+La adaptación incluida conserva el algoritmo y el límite de una escritura, activa simulación por defecto, corrige comentarios desactualizados, sustituye la propagación de errores de plataforma por un error genérico y vuelve a comprobar el vínculo CRM justo antes de una actualización. Son cambios exclusivos de la copia distribuida, no de producción.
+
+No se incluyó una copia adicional con escritura real habilitada. No se detectaron valores de credenciales ni correos personales en el código aportado. El contrato API, los campos y los puntos de escala descritos arriba siguen sujetos a validación independiente. Las pruebas locales usan adaptadores simulados y datos sintéticos.

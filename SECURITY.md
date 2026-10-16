@@ -1,6 +1,6 @@
 # Seguridad
 
-El proyecto está en preparación privada y no tiene una versión pública ejecutable soportada.
+El proyecto está en preparación privada y distribuye código experimental con simulación activada; no hay una versión pública estable soportada.
 
 No incluyas secretos, datos de contactos ni vulnerabilidades con información sensible en issues o PR. Antes de la publicación deberá habilitarse un canal privado de reporte y documentarse aquí. Mientras ese canal no esté habilitado, no adjuntes material sensible a este repositorio.
 

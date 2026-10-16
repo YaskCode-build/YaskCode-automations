@@ -1,0 +1,14 @@
+{
+  "name": "yaskcode-automations",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Offline validation for YaskCode Automations",
+  "scripts": {
+    "test": "node --test integrations/beehiiv-hubspot/tests/*.test.cjs",
+    "validate": "node scripts/validate.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
