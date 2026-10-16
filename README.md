@@ -6,7 +6,7 @@ Una iniciativa open source de **YaskCode Build** para aprender, adaptar y compar
 
 [English](README.en.md)
 
-> Versión experimental en preparación privada — 16 de octubre de 2026. Incluye una copia de V4 con simulación activada y pruebas sin red. Su instalación independiente contra API reales sigue pendiente. [Instalación](docs/installation.md) · [Integración](integrations/beehiiv-hubspot/README.md).
+> Edición experimental 0.1.0 — 16 de octubre de 2026. Incluye una copia de V4 con simulación activada y pruebas sin red. Su instalación independiente contra API reales sigue pendiente. [Instalación](docs/installation.md) · [Integración](integrations/beehiiv-hubspot/README.md).
 
 ## Aprender, aplicar y colaborar
 
@@ -23,9 +23,9 @@ El proyecto favorece documentación en español, acceso en inglés, ejemplos sin
 
 ## Primer caso real: beehiiv → HubSpot
 
-La integración actual consulta beehiiv desde Google Apps Script y sincroniza altas y bajas hacia HubSpot mediante un activador configurado cada 15 minutos. GitHub será la fuente versionada del código público y Apps Script continuará siendo el ejecutor principal.
+La integración actual consulta beehiiv desde Google Apps Script y sincroniza altas y bajas hacia HubSpot mediante un activador configurado cada 15 minutos. GitHub conserva el código de distribución y Apps Script es el ejecutor principal. La instalación operativa de la mantenedora se administra por separado.
 
-La frecuencia configurada no garantiza una ejecución puntual ni disponibilidad continua. El alcance exacto de las bajas, las propiedades CRM, la paginación y los reintentos se documentará después de revisar la V4 funcional. No se presupone sincronización bidireccional.
+La frecuencia configurada no garantiza una ejecución puntual ni disponibilidad continua. Las bajas se reflejan en propiedades propias del CRM; no eliminan contactos ni cambian consentimientos nativos de marketing. Los campos, la paginación y los reintentos están descritos en la guía de la integración. No se presupone sincronización bidireccional.
 
 | Componente | Responsabilidad |
 | --- | --- |
@@ -64,7 +64,7 @@ Costos de referencia en USD, consultados el 16 de octubre de 2026. Las cuotas pu
 | n8n Community | Sin tarifa de licencia para usos permitidos por su Sustainable Use License; alojamiento, mantenimiento, copias y disponibilidad tienen costo propio. | Editor visual y flujos complejos con muchas integraciones. | Necesita un entorno de ejecución propio o contratado. Su licencia tiene restricciones de uso y no es una licencia open source OSI. Adecuado cuando se puede operar infraestructura. |
 | Zapier | Free: 100 tareas/mes, flujos de un disparador y una acción, consulta periódica de 15 min. Professional desde USD 19,99/mes con facturación anual según oferta consultada. | Inicio rápido y conectores gestionados. | Apps premium, pasos adicionales y volumen pueden requerir pago; verificar cada conector. Adecuado para flujos sencillos de poco volumen. |
 
-Para el caso actual elegimos Apps Script como ejecutor y GitHub como fuente de código. Actions validará cambios; no sustituirá el activador de producción.
+Para el caso actual elegimos Apps Script como ejecutor y GitHub como fuente de código. Actions valida cambios; no sustituirá el activador de producción.
 
 ### Presupuesto de ejecución
 
@@ -72,25 +72,24 @@ Cada 15 minutos equivale aproximadamente a 96 ejecuciones al día. Con una cuent
 
 Estimar llamadas diarias como `96 × llamadas por sincronización`, incluyendo paginación, búsquedas, escrituras y reintentos. La escala puede quedar limitada por las API de beehiiv o HubSpot antes que por Apps Script. La disponibilidad y los límites de esas API en cada plan se verificarán en la guía de instalación; no se afirma que toda cuenta gratuita incluya acceso suficiente.
 
-## Estructura propuesta
+## Estructura del proyecto
 
-La organización lógica será por integración y luego por ejecutor. Así, una integración podrá incorporar otra implementación sin duplicar su explicación funcional.
+La organización lógica es por integración y luego por ejecutor. Así, una integración podrá incorporar otra implementación sin duplicar su explicación funcional.
 
-| Ruta prevista | Contenido |
+| Ruta | Contenido |
 | --- | --- |
 | `README.md`, `README.en.md` | Presentación y entrada en ambos idiomas |
 | `integrations/beehiiv-hubspot/README.md` | Alcance, datos, requisitos y operación |
 | `integrations/beehiiv-hubspot/apps-script/src/` | Código público revisado y manifiesto Apps Script |
 | `integrations/beehiiv-hubspot/apps-script/config/` | Plantillas sin valores privados |
 | `integrations/beehiiv-hubspot/tests/` | Pruebas de lógica y adaptadores simulados |
-| `integrations/beehiiv-hubspot/fixtures/` | Respuestas API exclusivamente sintéticas |
 | `docs/` | Arquitectura, instalación, clasp, privacidad, costos y problemas |
 | `templates/` | Plantilla para nuevas automatizaciones |
 | `scripts/` | Validaciones comunes del repositorio |
 | `.github/workflows/` | Validación de código, documentación y secretos |
 | `.github/ISSUE_TEMPLATE/` | Reportes y propuestas sin datos privados |
 | `CONTRIBUTING.md`, `SECURITY.md` | Contribución y reporte privado de vulnerabilidades |
-| `LICENSE`, `LICENSE-docs` | Licencias propuestas, pendientes de adopción |
+| `LICENSE` | MIT para código y documentación de esta edición |
 | `ROADMAP.md` | Entregas y criterios de aceptación |
 
 El árbol incorpora código experimental, manifiesto, plantillas y pruebas; algunas rutas de expansión siguen siendo propuestas.
@@ -118,13 +117,20 @@ Flujo de desarrollo previsto:
 6. Establecer credenciales de prueba mediante Script Properties y autorizar los permisos mínimos.
 7. Validar con datos sintéticos y un modo sin escrituras antes de instalar un activador de desarrollo.
 
-El repositorio no incluirá despliegue automático a producción ni credenciales OAuth para clasp en Actions. Las instrucciones exactas se ajustarán al código recuperado.
+El repositorio no incluirá despliegue automático a producción ni credenciales OAuth para clasp en Actions. Las rutas de esta edición se explican en [clasp](docs/clasp.md).
 
-## Instalación y operación: contrato documental
+## Instalación y validación
 
-La futura guía deberá cubrir acceso API por plan, permisos mínimos, propiedades CRM, configuración privada, ejecución manual de prueba, activador único, monitoreo, desactivación y recuperación. Se documentará cada propiedad por nombre, finalidad y obligatoriedad, nunca con su valor real.
+La [guía de instalación](docs/installation.md) cubre propiedades CRM, configuración privada, ejecución manual, activador de desarrollo, desactivación y recuperación. Para validar localmente se necesita Node.js 22 o superior:
 
-Un archivo de código no constituye una instalación completa: cada persona debe crear y autorizar su proyecto y configurar sus propias credenciales.
+```sh
+git clone https://github.com/YaskCode-build/YaskCode-automations.git
+cd YaskCode-automations
+npm run validate
+npm test
+```
+
+No se requieren dependencias npm para estas comprobaciones. Las pruebas usan adaptadores simulados y no llaman a beehiiv ni HubSpot. La instalación contra API requiere credenciales propias y autorización; no es requisito para estudiar o ejecutar las pruebas.
 
 ## Consentimiento y privacidad
 
@@ -136,7 +142,7 @@ Definir campos mínimos, finalidad, responsables, plazo de conservación y proce
 
 ## Seguridad y calidad antes de publicar
 
-- Confirmar la V4 exacta y compararla con la copia validada; los archivos candidatos todavía no son evidencia de equivalencia con producción.
+- V4 operativa aportada por la mantenedora y adaptación de distribución documentadas en [revisión V4](docs/v4-review.md).
 - Revisar todo el contenido y el historial que vaya a publicarse: tokens, claves, IDs privados, correos, cabeceras y registros.
 - Excluir `.clasp.json`, `.clasprc.json`, archivos `.env`, exportaciones y credenciales; `.gitignore` no elimina secretos ya versionados.
 - Revisar paginación completa, límites de ejecución, concurrencia, idempotencia, errores 401/403/429/5xx y escrituras parciales.
@@ -144,28 +150,28 @@ Definir campos mínimos, finalidad, responsables, plazo de conservación y proce
 - Probar con respuestas sintéticas: altas, bajas, duplicados, reactivaciones, estados desconocidos, paginación incompleta y reanudación.
 - No usar `pull_request_target` para ejecutar código de contribuciones; CI tendrá permisos de lectura y ninguna credencial de producción.
 
-Estas son condiciones de aceptación, no funcionalidades verificadas de la V4. Una revisión automática complementa la inspección humana y no demuestra ausencia total de secretos.
+Consultar el [estado de validación](docs/release-readiness.md): distingue comprobaciones realizadas y trabajo pendiente. Una revisión automática complementa la inspección humana y no demuestra ausencia total de secretos.
 
 ## Contribuir
 
 Se aceptarán mejoras de documentación, pruebas, accesibilidad, traducciones y nuevas integraciones. Cada propuesta deberá indicar origen y destino, ejecutor, costo, cuotas, permisos, modelo de consentimiento y estrategia de recuperación. Compartir un ejemplo reproducible con datos sintéticos.
 
-Para fallos de seguridad, utilizar el canal privado que se habilite antes del lanzamiento; no publicar vulnerabilidades con datos privados en un issue. No se anuncia todavía un canal que no exista.
+Para posibles vulnerabilidades, seguir [SECURITY.md](SECURITY.md); no publicar datos sensibles en issues.
 
-## Licencias propuestas
+## Licencia
 
 La licencia MIT existente se conserva. Para esta entrega también cubre la documentación. Se propone evaluar CC BY 4.0 para el material educativo en una decisión posterior, con sus textos y avisos antes de adoptarla. Dependencias y plataformas conservan sus propias licencias; la licencia del proyecto no modifica la de n8n ni los términos de las API.
 
-## Hoja de ruta
+## Hoja de ruta y estado
 
-| Etapa | Entrega | Criterio de salida |
-| --- | --- | --- |
-| 1. Diseño | Acceso, estructura, README bilingüe | Revisión de alcance y pendientes |
-| 2. Recuperación | V4 identificada y copia pública saneada | Cotejo funcional y revisión de seguridad |
-| 3. Reproducibilidad | Guías y pruebas con simulaciones | Instalación en desarrollo independiente |
-| 4. Preparación pública | Licencias, contribución, seguridad y workflows | Validación de contenido y revisión final |
-| 5. Publicación | Publicar repositorio y primera versión | Confirmación expresa de la mantenedora sobre contenido revisado |
-| 6. Expansión | Nuevas automatizaciones | Aplicar los mismos criterios de calidad |
+| Área | Estado |
+| --- | --- |
+| Estructura, documentación y modelo educativo | Incorporados en español e inglés |
+| Motor V4 para distribución | Experimental; simulación por defecto |
+| Pruebas locales y CI | 14 pruebas con API simuladas |
+| Instalación independiente con API reales | Pendiente |
+| Presupuesto de tiempo, Retry-After y cola durable | Evolución futura |
+| Nuevas integraciones | Propuestas en ROADMAP.md |
 
 Ideas futuras: formularios de inscripción a actividades con consentimiento; recordatorios académicos; consolidación de recursos educativos; reportes de proyectos GitHub; resúmenes de métricas comunitarias y limpieza de duplicados asistida. Son propuestas, no compromisos de compatibilidad ni integraciones implementadas.
 

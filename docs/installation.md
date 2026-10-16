@@ -1,5 +1,7 @@
 # Instalación en desarrollo independiente
 
+[English](installation.en.md)
+
 Esta guía no modifica ni reemplaza la instalación de producción. Estado: experimental; falta validar de extremo a extremo con cuentas de prueba.
 
 ## Requisitos

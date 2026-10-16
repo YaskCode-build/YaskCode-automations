@@ -1,5 +1,7 @@
 # beehiiv → HubSpot · Apps Script V4
 
+[English](README.en.md)
+
 Estado: copia experimental derivada del código operativo aportado por la mantenedora. Validada con simulaciones locales; no validada todavía contra API reales en un proyecto independiente.
 
 La instalación operativa existente utiliza `DRY_RUN=false`, un máximo de una escritura por ejecución y un activador de 15 minutos. Este repositorio distribuye `DRY_RUN=true` y conserva el máximo de una escritura. No incluye secretos, datos de suscriptores ni activadores.

@@ -26,7 +26,7 @@ The HubSpot demo uses a server and database. It is not a V4 dependency or an equ
 | Star, fork or follow | Helps saving, reusing or following; no guaranteed reach or response |
 | External PR | A real reviewable contribution under the receiving project's rules |
 
-This repository is currently private. A mention does not grant access. Do not use a private PR mention as an introduction mechanism for external people.
+In a private repository, a mention does not grant access. Do not use a private PR mention as an introduction mechanism for external people.
 
 ## Proposed networking path
 
