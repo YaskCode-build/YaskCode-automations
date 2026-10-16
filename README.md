@@ -8,6 +8,13 @@ Una iniciativa open source de **YaskCode Build** para aprender, adaptar y compar
 
 > Versión experimental en preparación privada — 16 de octubre de 2026. Incluye una copia de V4 con simulación activada y pruebas sin red. Su instalación independiente contra API reales sigue pendiente. [Instalación](docs/installation.md) · [Integración](integrations/beehiiv-hubspot/README.md).
 
+## Aprender, aplicar y colaborar
+
+Cada integración combinará **teoría, comparación, práctica, aplicación y resultados**, distinguiendo respuestas HTTP, estados del dominio y resultados de ejecución.
+
+- [Modelo educativo, disparadores y clasificación de respuestas](docs/learning-model.md)
+- [Referentes técnicos, colaboración y visibilidad](docs/ecosystem.md)
+
 ## Propósito
 
 Reducir tareas repetitivas en educación, comunidades y productividad mediante soluciones comprensibles y reutilizables. Cada automatización debe explicar qué hace, dónde se ejecuta, qué permisos necesita, cuánto puede costar y cómo detenerla.
